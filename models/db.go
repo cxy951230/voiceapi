@@ -8,14 +8,13 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-
-
 type CallLogs struct {
-	Id	int64  `orm:"index"`
-	Callid	string `orm:"null"`
-	SpeakerId	string `orm:"null"`
-	Phone	string `orm:"null"`
-	Name	string `orm:"null"`
+	Id        int64  `orm:"index"`
+	ValidCode string `orm:"index"`
+	SpeakerId string `orm:"null"`
+	Name      string `orm:"null"`
+	Company   string `orm:"null"`
+	Address   string `orm:"null"`
 }
 
 func RegisterDB() {
@@ -33,4 +32,3 @@ func RegisterDB() {
 	fmt.Println("RegisterDB： conn[", conn, "]")
 	orm.RegisterDataBase("default", "mysql", conn) //密码为空格式
 }
-

@@ -3,14 +3,13 @@ package controllers
 import (
 	"fmt"
 	"log"
-	"voicematch/models"
 
 	"github.com/gorilla/websocket"
 )
 
 var (
 	clients   = make(map[*websocket.Conn]bool)
-	broadcast = make(chan models.Message)
+	broadcast = make(chan string)
 )
 
 func init() {
